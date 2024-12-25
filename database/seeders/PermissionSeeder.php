@@ -13,11 +13,7 @@ class PermissionSeeder extends Seeder
     {
         Permission::create(['name' => 'admin']);
 
-        $permission = collect([
-            "users",
-            'roles',
-            'permissions'
-        ]);
+        $permission = collect(config('modules.admin'));
 
         $permission->each(function ($permission) {
             Permission::create(['name' => 'viewAny__' .$permission]);
